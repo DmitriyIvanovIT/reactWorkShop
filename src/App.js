@@ -9,55 +9,55 @@ function App() {
     </header>
 
     <main>
-        <div class="container">
-            <section class="total">
-                <header class="total__header">
+        <div className="container">
+            <section className="total">
+                <header className="total__header">
                     <h3>Баланс</h3>
-                    <p class="total__balance">0 ₽</p>
+                    <p className="total__balance">0 ₽</p>
                 </header>
-                <div class="total__main">
-                    <div class="total__main-item total__income">
+                <div className="total__main">
+                    <div className="total__main-item total__income">
                         <h4>Доходы</h4>
-                        <p class="total__money total__money-income">
+                        <p className="total__money total__money-income">
                             +0 ₽
                         </p>
                     </div>
-                    <div class="total__main-item total__expenses">
+                    <div className="total__main-item total__expenses">
                         <h4>Расходы</h4>
-                        <p class="total__money total__money-expenses">
+                        <p className="total__money total__money-expenses">
                             -0 ₽
                         </p>
                     </div>
                 </div>
             </section>
 
-            <section class="history">
+            <section className="history">
                 <h3>История расходов</h3>
-                <ul class="history__list">
-                    <li class="history__item history__item-plus">Получил зарплату
-                        <span class="history__money">+30000 ₽</span>
-                        <button class="history__delete">x</button>
+                <ul className="history__list">
+                    <li className="history__item history__item-plus">Получил зарплату
+                        <span className="history__money">+30000 ₽</span>
+                        <button className="history__delete">x</button>
                     </li>
 
-                    <li class="history__item  history__item-minus">Отдал долг
-                        <span class="history__money">-10000 ₽</span>
-                        <button class="history__delete">x</button>
+                    <li className="history__item  history__item-minus">Отдал долг
+                        <span className="history__money">-10000 ₽</span>
+                        <button className="history__delete">x</button>
                     </li>
                 </ul>
             </section>
 
-            <section class="operation">
+            <section className="operation">
                 <h3>Новая операция</h3>
                 <form id="form">
                     <label>
-                        <input type="text" class="operation__fields operation__name" placeholder="Наименование операции"/>
+                        <input type="text" className="operation__fields operation__name" placeholder="Наименование операции"/>
                     </label>
                     <label>
-                        <input type="number" class="operation__fields operation__amount" placeholder="Введите сумму"/>
+                        <input type="number" className="operation__fields operation__amount" placeholder="Введите сумму"/>
                     </label>
-                    <div class="operation__btns">
-                        <button type="submit" class="operation__btn operation__btn-subtract">РАСХОД</button>
-                        <button type="submit" class="operation__btn operation__btn-add">ДОХОД</button>
+                    <div className="operation__btns">
+                        <button type="submit" className="operation__btn operation__btn-subtract">РАСХОД</button>
+                        <button type="submit" className="operation__btn operation__btn-add">ДОХОД</button>
                     </div>
 
                 </form>
