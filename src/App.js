@@ -8,7 +8,10 @@ class App extends Component {
     state = {
         transactions: [],
         description: '',
-        amount: ''
+        amount: '',
+        allIncomeState: 0,
+        allExpensesState: 0,
+        balance: 0
     };
 
     addTransaction = add => {
@@ -27,15 +30,44 @@ class App extends Component {
             transactions,
             description: '',
             amount: ''
-         });
+         }, () => {
+            this.calculate(true);
+            this.calculate(false);
+        });
     };
 
     addAmount = e => {
         this.setState({amount: e.target.value});
     };
+
     addDescription = e => {
         this.setState({description: e.target.value});
     };
+
+    getBalance = () => {
+        const balance = this.state.allIncomeState - this.state.allExpensesState;
+        this.setState({ balance });
+    };
+
+    calculate = type => {
+
+        const sum = this.state.transactions.reduce((accum, item) => item.add === type ? accum + +item.amount : accum, 0);
+        
+        if (type) {
+
+            this.setState({
+                allIncomeState: sum
+            }, this.getBalance);
+
+        } else {
+
+            this.setState({
+                allExpensesState: sum
+            }, this.getBalance);
+        
+        }
+
+    }; 
 
     render () {
         return (
@@ -47,7 +79,11 @@ class App extends Component {
         
             <main>
                 <div className="container">
-                    <Total/>
+                    <Total
+                        balance={this.state.balance}
+                        allIncomeState={this.state.allIncomeState}
+                        allExpensesState={this.state.allExpensesState}
+                    />
                     <History transactions={this.state.transactions}/>
                     <Operation 
                         addTransaction={this.addTransaction}

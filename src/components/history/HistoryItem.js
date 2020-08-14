@@ -1,11 +1,11 @@
 import React from 'react';
 
-const HistoryItem = ({ key, transaction }) => (
+const HistoryItem = ({ transaction }) => (
     <li 
         className={`history__item ${transaction.add ? 
             'history__item-plus' : 
             'history__item-minus'}`}
-        data-key={key}>
+        >
         {transaction.description}
         <span className="history__money">{transaction.add ? 
             `+${transaction.amount}` : 
